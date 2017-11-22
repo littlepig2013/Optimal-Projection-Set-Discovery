@@ -65,7 +65,7 @@ def get_initial_projection(dimension, noise):
 
     return A0
 
-def optimal_projections_discovery(dataset, noise, stepSize, convergence):
+def optimal_projections_discovery(dataset, noise=0.2, stepSize=1.0, convergence=0.1):
     # Load data
     dataFileName = "dataset/" + dataset + ".txt"
     data = np.loadtxt(dataFileName)
@@ -109,5 +109,7 @@ def optimal_projections_discovery(dataset, noise, stepSize, convergence):
     for projectionMatrix in currProjectionMatrixList:
         projection = data.dot(projectionMatrix.T)
         projectionList.append(projection)
+
+    print(projectionList)
 
     return projectionList
