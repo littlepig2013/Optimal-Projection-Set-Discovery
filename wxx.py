@@ -68,11 +68,24 @@ class Mywin(wx.Frame):
 		self.t5.Clear()
 		s=self.rbox.GetSelection()
 		if s==0:
-			self.t5.AppendText("A")
+			self.t5.AppendText("Title: Wisconsin Diagnostic Breast Cancer (WDBC)\n")
+			self.t5.AppendText("Number of instances: 569 \n")
+			self.t5.AppendText("Number of attributes: 32 (ID, diagnosis, 30 real-valued input features)\n")
+			self.t5.AppendText("Class distribution: 357 benign, 212 malignant\n")
 		elif s==1:
-			self.t5.AppendText("B")
+			self.t5.AppendText("Title: Wine recognition data\n")
+			self.t5.AppendText("Number of Instances:\n")
+			self.t5.AppendText("    class 1 59\n")
+			self.t5.AppendText("    class 2 71\n")
+			self.t5.AppendText("    class 3 48\n")
+			self.t5.AppendText("Number of Attributes:13\n")
 		elif s==2:
-			self.t5.AppendText("C")
+			self.t5.AppendText("\n")
+			self.t5.AppendText("\n")
+			self.t5.AppendText("\n")
+			self.t5.AppendText("\n")
+			self.t5.AppendText("\n")
+			self.t5.AppendText("Number of Attributes:13\n")
 
 
 	def start(self, event):
@@ -88,6 +101,7 @@ class Mywin(wx.Frame):
 			data='yeast'
 
 		plist=self.discovery(data,arg1,arg2,arg3)
+		for
 
 
 	def close(self, event):
