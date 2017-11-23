@@ -113,7 +113,7 @@ class Mywin(wx.Frame):
 
 		#Display
 		panel.SetSizer(vbox)
-		self.Center()
+		#self.Center()
 		self.Show()
 
 	#Radiobox event

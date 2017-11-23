@@ -64,7 +64,7 @@ def get_initial_projection(dimension, noise):
             y = -y
         A0[1][index] += y*noiseSqrt
 
-    return A0
+    return gram_schmidt_orth(A0)
 
 
 def optimal_projections_discovery(dataset, noise=0.2, stepSize=1.0, convergence=0.1):
