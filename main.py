@@ -208,9 +208,12 @@ class Mywin(wx.Frame):
 				ax=fig2.add_subplot(230+c)
 			elif len(plist)<10:
 				ax=fig2.add_subplot(330+c)
+			elif len(plist)<13:
+				ax=fig2.add_subplot(340+c)
 			plt.plot(X[:,0],X[:,1],'o')
 			ax.set_title('Projection'+str(c))
 			c=c+1
+		fig2.tight_layout()
 		plt.show()
 
 
