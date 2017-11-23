@@ -21,9 +21,12 @@ class Mywin(wx.Frame):
 		hbox5=wx.BoxSizer(wx.HORIZONTAL)
 		self.t5=wx.TextCtrl(panel, size=(400,250),style=wx.TE_MULTILINE)
 		self.t5.AppendText("Title: Wisconsin Diagnostic Breast Cancer (WDBC)\n")
+		self.t5.AppendText("\n")
 		self.t5.AppendText("Number of instances: 569 \n")
+		self.t5.AppendText("\n")
 		self.t5.AppendText("Number of attributes: 32\n")
 		self.t5.AppendText("    ID, diagnosis, 30 real-valued input features\n")
+		self.t5.AppendText("\n")
 		self.t5.AppendText("Class distribution:\n")
 		self.t5.AppendText("    357 benign\n")
 		self.t5.AppendText("    212 malignant\n")
@@ -120,17 +123,23 @@ class Mywin(wx.Frame):
 		s=self.rbox.GetSelection()
 		if s==0:
 			self.t5.AppendText("Title: Wisconsin Diagnostic Breast Cancer (WDBC)\n")
+			self.t5.AppendText("\n")
 			self.t5.AppendText("Number of instances: 569 \n")
+			self.t5.AppendText("\n")
 			self.t5.AppendText("Number of attributes: 32\n")
 			self.t5.AppendText("    ID, diagnosis, 30 real-valued input features\n")
+			self.t5.AppendText("\n")
 			self.t5.AppendText("Class distribution:\n")
 			self.t5.AppendText("    357 benign\n")
 			self.t5.AppendText("    212 malignant\n")
 			self.t5.AppendText("\n")
 		elif s==1:
 			self.t5.AppendText("Title: Wine recognition data\n")
+			self.t5.AppendText("\n")
 			self.t5.AppendText("Number of Instances: 178\n")
+			self.t5.AppendText("\n")
 			self.t5.AppendText("Number of Attributes:13\n")
+			self.t5.AppendText("\n")
 			self.t5.AppendText("Class distribution:\n")
 			self.t5.AppendText("    Class 1 59\n")
 			self.t5.AppendText("    Class 2 71\n")
@@ -139,9 +148,12 @@ class Mywin(wx.Frame):
 
 		elif s==2:
 			self.t5.AppendText("Title: Protein Localization Sites\n")
+			self.t5.AppendText("\n")
 			self.t5.AppendText("Number of Instances:  1484 for the Yeast dataset.\n")
+			self.t5.AppendText("\n")
 			self.t5.AppendText("Number of Attributes: 9\n")
 			self.t5.AppendText("    8 predictive, 1 name\n")
+			self.t5.AppendText("\n")
 			self.t5.AppendText("Class Distribution:\n")
 			self.t5.AppendText("    463  CYT (cytosolic or cytoskeletal)\n")
 			self.t5.AppendText("    429  NUC (nuclear)\n")
@@ -153,6 +165,7 @@ class Mywin(wx.Frame):
 			self.t5.AppendText("     30   VAC (vacuolar)\n")
 			self.t5.AppendText("     20   POX (peroxisomal)\n")
 			self.t5.AppendText("      5    ERL (endoplasmic reticulum lumen)\n")
+			self.t5.AppendText("\n")
 
 	#Button event
 	def start(self, event):

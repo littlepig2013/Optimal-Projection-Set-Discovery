@@ -19,6 +19,7 @@ def  gram_schmidt_orth(projectionMatrix):
 
     return np.array(orthProjectionMatrix)
 
+
 def projection_matrix_combination(currProjectionMatrixList, dimension):
     # Generate [0 .. 0 1] (length: dimension+1)
     initVector = np.array([np.zeros(dimension + 1)])
@@ -32,6 +33,7 @@ def projection_matrix_combination(currProjectionMatrixList, dimension):
         A_ = np.concatenate((tempProjectionMatrix, A_))
 
     return A_
+
 
 def get_initial_projection(dimension, noise):
     indexes = range(dimension)
@@ -64,6 +66,7 @@ def get_initial_projection(dimension, noise):
 
     return A0
 
+
 def optimal_projections_discovery(dataset, noise=0.2, stepSize=1.0, convergence=0.1):
     # Load data
     dataFileName = "dataset/" + dataset + ".txt"
@@ -77,6 +80,7 @@ def optimal_projections_discovery(dataset, noise=0.2, stepSize=1.0, convergence=
     A0 = get_initial_projection(dimension, noise)
     B = A0.copy()
     currProjectionMatrixList = []
+    previousGradientNorm = float('inf')
 
     while True:
 
@@ -85,8 +89,11 @@ def optimal_projections_discovery(dataset, noise=0.2, stepSize=1.0, convergence=
         B = A0.copy()
         B_ = projection_matrix_combination([B], dimension)
 
-        if np.linalg.norm(B_.dot(H_).dot(H_.T)) < 0.05:
+        initGradientNorm = np.linalg.norm(B_.dot(H_).dot(H_.T))
+        print(initGradientNorm)
+        if previousGradientNorm < initGradientNorm or initGradientNorm < 1e-06:
             break
+        previousGradientNorm = initGradientNorm
 
         # Gradient ascent starts
         while True:
@@ -102,6 +109,7 @@ def optimal_projections_discovery(dataset, noise=0.2, stepSize=1.0, convergence=
 
         currProjectionMatrixList.append(B)
 
+    currProjectionMatrixList.insert(0, A0)
     # Generate optimal projections
     projectionList = []
     for projectionMatrix in currProjectionMatrixList:
