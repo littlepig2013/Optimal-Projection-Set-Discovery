@@ -19,7 +19,6 @@ def  gram_schmidt_orth(projectionMatrix):
 
     return np.array(orthProjectionMatrix)
 
-
 def projection_matrix_combination(currProjectionMatrixList, dimension):
     # Generate [0 .. 0 1] (length: dimension+1)
     initVector = np.array([np.zeros(dimension + 1)])
@@ -86,7 +85,7 @@ def optimal_projections_discovery(dataset, noise=0.2, stepSize=1.0, convergence=
         B = A0.copy()
         B_ = projection_matrix_combination([B], dimension)
 
-        if np.linalg.norm(B_.dot(H_).dot(H_.T)) < 1e-10:
+        if np.linalg.norm(B_.dot(H_).dot(H_.T)) < 0.05:
             break
 
         # Gradient ascent starts
@@ -103,13 +102,10 @@ def optimal_projections_discovery(dataset, noise=0.2, stepSize=1.0, convergence=
 
         currProjectionMatrixList.append(B)
 
-
     # Generate optimal projections
     projectionList = []
     for projectionMatrix in currProjectionMatrixList:
         projection = data.dot(projectionMatrix.T)
         projectionList.append(projection)
-
-    print(projectionList)
 
     return projectionList
