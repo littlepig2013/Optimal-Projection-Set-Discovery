@@ -109,7 +109,6 @@ def optimal_projections_discovery(dataset, noise=0.2, stepSize=1.0, convergence=
 
         currProjectionMatrixList.append(B)
 
-    currProjectionMatrixList.insert(0, A0)
     # Generate optimal projections
     projectionList = []
     for projectionMatrix in currProjectionMatrixList:
